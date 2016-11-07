@@ -54,7 +54,7 @@ def hello():
 @bp.route('/flight_delay_prediction', methods=['POST', 'OPTIONS'])
 def flight_delay_prediction():
     payload = request.get_json(force=True)
-    return jsonify({'prediction': prediction(payload['data'])})
+    return jsonify({'prob_delay': prediction(payload['data'])})
 
 def prediction(data):
     operand = MODEL_INTERCEPT
